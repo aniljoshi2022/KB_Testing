@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MySQL Sandbox Database Report</title>
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --panel: #ffffff;
+    --border: #e3e1db;
+    --text: #1f1e1c;
+    --muted: #6b6a66;
+    --accent: #b8420f;
+    --accent-soft: #f3e4da;
+    --ok: #2f6f3e;
+    --warn: #a3550c;
+    --code-bg: #f1efe9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    padding: 32px 20px 64px;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  header {
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 18px;
+    margin-bottom: 28px;
+  }
+  header h1 { margin: 0 0 6px; font-size: 1.7rem; }
+  header .sub { color: var(--muted); font-size: 0.95rem; }
+  .badge {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 2px 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  section {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 22px;
+  }
+  section h2 {
+    margin-top: 0;
+    font-size: 1.15rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-top: 10px;
+  }
+  table.wide-x { display: block; overflow-x: auto; }
+  th, td {
+    text-align: left;
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  th { color: var(--muted); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  tr:last-child td { border-bottom: none; }
+  .kv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px 24px;
+  }
+  .kv-grid div.item {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+  .kv-grid .label { color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  .kv-grid .value { font-size: 0.98rem; font-weight: 600; margin-top: 2px; word-break: break-all; }
+  code {
+    background: var(--code-bg);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.85em;
+  }
+  .pill {
+    display: inline-block;
+    padding: 1px 9px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .pill.locked { background: #f3d9d0; color: var(--warn); }
+  .pill.active { background: #dcecdd; color: var(--ok); }
+  ul.obs { padding-left: 20px; }
+  ul.obs li { margin-bottom: 8px; line-height: 1.5; }
+  .note {
+    background: var(--accent-soft);
+    border: 1px solid #e6c4ab;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    color: #7a3609;
+    margin-bottom: 22px;
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 30px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>MySQL Database Report <span class="badge">read-only inspection</span></h1>
+  <div class="sub">Generated 2026-09-12 16:20 UTC &middot; Target: <code>Anils-MacBook-Pro.local:9701</code></div>
+</header>
+
+<div class="note">
+  <strong>Observation:</strong> This server is an empty <strong>dbdeployer</strong> sandbox — the only schema holding
+  data is the built-in <code>mysql</code> system schema. The <code>test</code> database exists but contains
+  no tables. The sections below cover server identity, the schemas present, table inventory, accounts, and
+  live server status rather than application data, since none exists yet.
+</div>
+
+<section>
+  <h2>1. Database / Server Information</h2>
+  <div class="kv-grid">
+    <div class="item"><div class="label">MySQL Version</div><div class="value">9.7.1 (MySQL Community Server – GPL)</div></div>
+    <div class="item"><div class="label">Hostname</div><div class="value">Anils-MacBook-Pro.local</div></div>
+    <div class="item"><div class="label">Port</div><div class="value">9701</div></div>
+    <div class="item"><div class="label">Data Directory</div><div class="value">/Users/aniljoshi/sandboxes/msb_9_7_1/data/</div></div>
+    <div class="item"><div class="label">Base Directory</div><div class="value">/Users/aniljoshi/opt/mysql/9.7.1/</div></div>
+    <div class="item"><div class="label">Server Character Set / Collation</div><div class="value">utf8mb4 / utf8mb4_general_ci</div></div>
+    <div class="item"><div class="label">log_bin</div><div class="value">ON</div></div>
+    <div class="item"><div class="label">max_connections</div><div class="value">151</div></div>
+    <div class="item"><div class="label">innodb_buffer_pool_size</div><div class="value">128 MB (134,217,728 bytes)</div></div>
+    <div class="item"><div class="label">Uptime</div><div class="value">106,407 s (&asymp; 29.6 hours)</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>2. Schemas Present</h2>
+  <table>
+    <thead><tr><th>Schema</th><th>Default Charset</th><th>Default Collation</th><th>Role</th></tr></thead>
+    <tbody>
+      <tr><td>information_schema</td><td>utf8mb3</td><td>utf8mb3_general_ci</td><td>System metadata views</td></tr>
+      <tr><td>mysql</td><td>utf8mb4</td><td>utf8mb4_0900_ai_ci</td><td>System / grant tables (contains data)</td></tr>
+      <tr><td>performance_schema</td><td>utf8mb4</td><td>utf8mb4_0900_ai_ci</td><td>Server instrumentation</td></tr>
+      <tr><td>sys</td><td>utf8mb4</td><td>utf8mb4_0900_ai_ci</td><td>Convenience views over performance_schema</td></tr>
+      <tr><td>test</td><td>utf8mb4</td><td>utf8mb4_0900_ai_ci</td><td><em>Empty</em> — default dbdeployer test schema, no tables</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>3. Table Inventory — <code>mysql</code> schema</h2>
+  <p style="color:var(--muted); margin-top:-6px;">38 tables, &asymp; 3,698 rows total, &asymp; 2.66 MB on disk. Largest / most populated tables:</p>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>Table</th><th>Engine</th><th>Approx. Rows</th><th>Data Size</th><th>Created</th></tr></thead>
+    <tbody>
+      <tr><td>help_topic</td><td>InnoDB</td><td>604</td><td>1.52 MB</td><td>2026-09-11</td></tr>
+      <tr><td>help_relation</td><td>InnoDB</td><td>1,837</td><td>80 KB</td><td>2026-09-11</td></tr>
+      <tr><td>help_keyword</td><td>InnoDB</td><td>998</td><td>128 KB</td><td>2026-09-11</td></tr>
+      <tr><td>help_category</td><td>InnoDB</td><td>53</td><td>16 KB</td><td>2026-09-11</td></tr>
+      <tr><td>global_grants</td><td>InnoDB</td><td>147</td><td>96 KB</td><td>2026-09-11</td></tr>
+      <tr><td>user</td><td>InnoDB</td><td>16</td><td>16 KB</td><td>2026-09-11</td></tr>
+      <tr><td>default_roles / role_edges</td><td>InnoDB</td><td>7 each</td><td>16 KB each</td><td>2026-09-11</td></tr>
+      <tr><td>db, engine_cost, server_cost, general_log, slow_log, gtid_executed, …</td><td>InnoDB / CSV</td><td>0–6</td><td>16 KB or less</td><td>2026-09-11</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="color:var(--muted); font-size:0.85rem;">Remaining tables (columns_priv, component, func, plugin, servers, time_zone*, replication_*, etc.) are empty (0 rows) — normal for a freshly provisioned instance with no plugins, time zone data, or replication configured.</p>
+</section>
+
+<section>
+  <h2>4. Accounts (<code>mysql.user</code>)</h2>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>User</th><th>Host</th><th>Auth Plugin</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>root</td><td>localhost</td><td>caching_sha2_password</td><td><span class="pill active">active</span></td></tr>
+      <tr><td>msandbox</td><td>127.%</td><td>caching_sha2_password</td><td><span class="pill active">active</span></td></tr>
+      <tr><td>msandbox</td><td>localhost</td><td>caching_sha2_password</td><td><span class="pill active">active</span></td></tr>
+      <tr><td>msandbox_ro</td><td>127.%</td><td>caching_sha2_password</td><td><span class="pill active">active</span></td></tr>
+      <tr><td>msandbox_ro</td><td>localhost</td><td>caching_sha2_password</td><td><span class="pill active">active</span></td></tr>
+      <tr><td>msandbox_rw</td><td>127.%</td><td>caching_sha2_password</td><td><span class="pill active">active</span></td></tr>
+      <tr><td>msandbox_rw</td><td>localhost</td><td>caching_sha2_password</td><td><span class="pill active">active</span></td></tr>
+      <tr><td>rsandbox</td><td>127.%</td><td>caching_sha2_password</td><td><span class="pill active">active</span></td></tr>
+      <tr><td>R_CUSTOM</td><td>%</td><td>caching_sha2_password</td><td><span class="pill locked">locked, expired</span></td></tr>
+      <tr><td>R_DO_IT_ALL</td><td>%</td><td>caching_sha2_password</td><td><span class="pill locked">locked, expired</span></td></tr>
+      <tr><td>R_READ_ONLY</td><td>%</td><td>caching_sha2_password</td><td><span class="pill locked">locked, expired</span></td></tr>
+      <tr><td>R_READ_WRITE</td><td>%</td><td>caching_sha2_password</td><td><span class="pill locked">locked, expired</span></td></tr>
+      <tr><td>R_REPLICATION</td><td>%</td><td>caching_sha2_password</td><td><span class="pill locked">locked, expired</span></td></tr>
+      <tr><td>mysql.infoschema</td><td>localhost</td><td>caching_sha2_password</td><td><span class="pill locked">locked (built-in)</span></td></tr>
+      <tr><td>mysql.session</td><td>localhost</td><td>caching_sha2_password</td><td><span class="pill locked">locked (built-in)</span></td></tr>
+      <tr><td>mysql.sys</td><td>localhost</td><td>caching_sha2_password</td><td><span class="pill locked">locked (built-in)</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>5. Live Server Status</h2>
+  <div class="kv-grid" style="margin-bottom:16px;">
+    <div class="item"><div class="label">Connections (lifetime)</div><div class="value">15</div></div>
+    <div class="item"><div class="label">Threads Connected (now)</div><div class="value">2</div></div>
+    <div class="item"><div class="label">Questions (lifetime)</div><div class="value">120</div></div>
+    <div class="item"><div class="label">Slow Queries</div><div class="value">0</div></div>
+    <div class="item"><div class="label">InnoDB Buffer Pool Pages (total)</div><div class="value">8,192</div></div>
+  </div>
+  <p style="color:var(--muted); margin-bottom:4px;">Active sessions at time of report:</p>
+  <table>
+    <thead><tr><th>ID</th><th>User</th><th>Host</th><th>DB</th><th>Command</th><th>Time (s)</th><th>State</th></tr></thead>
+    <tbody>
+      <tr><td>5</td><td>event_scheduler</td><td>localhost</td><td>—</td><td>Daemon</td><td>106,408</td><td>Waiting on empty queue</td></tr>
+      <tr><td>14</td><td>root</td><td>localhost:60329</td><td>test</td><td>Sleep</td><td>3,360</td><td>—</td></tr>
+      <tr><td>15</td><td>root</td><td>localhost:60330</td><td>test</td><td>Query</td><td>0</td><td>executing (this report's query)</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>6. Observations</h2>
+  <ul class="obs">
+    <li><strong>No application data exists yet.</strong> Every user-created schema (<code>test</code>) is empty; the only populated schema is the built-in <code>mysql</code> grant/system schema. There is nothing to analyze in terms of business data or query performance at this time.</li>
+    <li><strong>This is a dbdeployer sandbox</strong> (data directory <code>msb_9_7_1</code>), running MySQL Community Server 9.7.1 on a single local host — appropriate for development/testing, not a production topology.</li>
+    <li><strong>Five roles are provisioned but locked/expired</strong> (<code>R_CUSTOM</code>, <code>R_DO_IT_ALL</code>, <code>R_READ_ONLY</code>, <code>R_READ_WRITE</code>, <code>R_REPLICATION</code>) — these look like role templates set up for future grants (e.g. via <code>default_roles</code>/<code>role_edges</code>, which already have 7 rows each) rather than direct login accounts.</li>
+    <li><strong>Binary logging is enabled</strong> (<code>log_bin=ON</code>), consistent with a sandbox meant to test replication (msandbox/rsandbox accounts, replication_* tables present though currently empty).</li>
+    <li><strong>InnoDB buffer pool is small</strong> (128 MB) — fine for a lightweight sandbox, but would need increasing before this instance is used for any real workload or benchmarking.</li>
+    <li><strong>Zero slow queries and modest lifetime query count (120)</strong> confirm the instance has seen only light, incidental use (setup/health checks, and this report) since it started ~29.6 hours ago.</li>
+  </ul>
+</section>
+
+<footer>Read-only inspection performed via MySQL MCP connector · SELECT/SHOW statements only, no data modified.</footer>
+
+</div>
+</body>
+</html>
